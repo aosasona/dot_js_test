@@ -10,14 +10,23 @@ pub fn main() {
   ))
   // or `dot_env.load()` to load it the `.env` file in the root path
 
-  case env.get("PORT") {
-    Ok(value) -> io.println(value)
-    Error(_) -> panic as "PORT not found"
-  }
-
   case env.get("APP_NAME") {
     Ok(value) -> io.println(value)
     Error(_) -> panic as "APP_NAME not found"
+  }
+
+  case env.get_bool("APP_DEBUG") {
+    Ok(value) ->
+      case value {
+        True -> io.println("DEBUG is true")
+        False -> io.println("DEBUG is false")
+      }
+    Error(_) -> panic as "DEBUG not found"
+  }
+
+  case env.get_int("PORT") {
+    Ok(value) -> io.debug(value)
+    Error(_) -> panic as "APP_PORT not found"
   }
 
   Nil
