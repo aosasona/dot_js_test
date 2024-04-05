@@ -7,6 +7,7 @@ pub fn main() {
     path: ".env",
     debug: False,
     capitalize: True,
+    ignore_missing_file: False,
   ))
   // or `dot_env.load()` to load it the `.env` file in the root path
 
