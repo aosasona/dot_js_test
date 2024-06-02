@@ -1,22 +1,29 @@
-# dot_js_test
+# Building
 
-[![Package Version](https://img.shields.io/hexpm/v/dot_js_test)](https://hex.pm/packages/dot_js_test)
-[![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/dot_js_test/)
-
-## Quick start
+You need to have the [`dotenv`](https://github.com/aosasona/dotenv) package cloned locally and point your `gleam.toml` definition to the location. Run the following command to build the code:
 
 ```sh
-gleam run   # Run the project
-gleam test  # Run the tests
-gleam shell # Run an Erlang shell
+gleam build
 ```
 
-## Installation
+# Running tests
 
-If available on Hex this package can be added to your Gleam project:
+Run the following commands to test the code in each supported runtime:
+
+### Node
 
 ```sh
-gleam add dot_js_test
+node ./build/dev/javascript/dot_js_test/gleam.main.mjs
 ```
 
-and its documentation can be found at <https://hexdocs.pm/dot_js_test>.
+### Bun
+
+```sh
+bun ./build/dev/javascript/dot_js_test/gleam.main.mjs
+```
+
+### Deno
+
+```sh
+deno run --allow-read --allow-env ./build/dev/javascript/dot_js_test/gleam.main.mjs
+```
